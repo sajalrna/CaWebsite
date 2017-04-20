@@ -8,9 +8,26 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
 	@RequestMapping("/")
-	public ModelAndView showHome() {
-		ModelAndView mv= new ModelAndView("/index");
+	public ModelAndView showStart() {
+		ModelAndView mv = new ModelAndView("/index");
 		return mv;
 	}
 
+	@RequestMapping("home")
+	public ModelAndView showHome() {
+		ModelAndView mv = new ModelAndView("/index");
+		return mv;
+	}
+
+	@RequestMapping("partners")
+	public ModelAndView showPartners() {
+		ModelAndView mv = new ModelAndView("/partners");
+		return mv;
+	}
+
+	@RequestMapping("associates")
+	public ModelAndView showAssociates() {
+		ModelAndView mv = new ModelAndView("/associates");
+		return mv;
+	}
 }
