@@ -24,7 +24,7 @@ public class PartnerController {
 	@Autowired
 	PartnerDAO partnerDAO;
 
-	@RequestMapping("partnerForm")
+	@RequestMapping("/partnerForm")
 	public String partnerForm(Model model) {
 		model.addAttribute("partner", partner);
 		model.addAttribute("partnerList", partnerDAO.partner());

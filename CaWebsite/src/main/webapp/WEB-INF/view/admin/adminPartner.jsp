@@ -35,10 +35,6 @@
 				<div class="form-group">
 					<fm:textarea path="about" class="form-control" type="textarea"
 						id="about" placeholder="About you" maxlength="250" rows="7"></fm:textarea>
-					<span class="help-block">
-						<p id="characterLeft" class="help-block ">You have reached the
-							limit</p>
-					</span>
 				</div>
 				<input type="submit" id="submit" name="submit" value="Submit Form"
 					class="btn btn-primary pull-right">
