@@ -18,6 +18,7 @@
 	<jsp:include page="register.jsp"></jsp:include>
 </c:if>
 
+<a href="partnerForm">edit partner</a>
 
 <jsp:include page="carousal.jsp"></jsp:include>
 <br>

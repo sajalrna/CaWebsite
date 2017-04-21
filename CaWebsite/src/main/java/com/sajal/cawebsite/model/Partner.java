@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Partners implements Serializable {
+public class Partner implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -21,7 +21,7 @@ public class Partners implements Serializable {
 
 	private String about;
 
-	private double year;
+	private long year;
 
 	private String role;
 
@@ -51,11 +51,11 @@ public class Partners implements Serializable {
 		this.about = about;
 	}
 
-	public double getYear() {
+	public long getYear() {
 		return year;
 	}
 
-	public void setYear(double year) {
+	public void setYear(long year) {
 		this.year = year;
 	}
 

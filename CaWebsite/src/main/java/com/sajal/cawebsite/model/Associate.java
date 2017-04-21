@@ -3,23 +3,22 @@ package com.sajal.cawebsite.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Services implements Serializable {
+public class Associate implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 
 	private String name;
 
-	private String details;
+	private String company;
+
+	private String companyname;
 
 	public int getId() {
 		return id;
@@ -37,12 +36,20 @@ public class Services implements Serializable {
 		this.name = name;
 	}
 
-	public String getDetails() {
-		return details;
+	public String getCompany() {
+		return company;
 	}
 
-	public void setDetails(String details) {
-		this.details = details;
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getCompanyname() {
+		return companyname;
+	}
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
 
 }
