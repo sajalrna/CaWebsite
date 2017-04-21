@@ -9,13 +9,13 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public ModelAndView showStart() {
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("/Home");
 		return mv;
 	}
 
 	@RequestMapping("home")
 	public ModelAndView showHome() {
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("/Home");
 		return mv;
 	}
 
@@ -28,6 +28,19 @@ public class HomeController {
 	@RequestMapping("associates")
 	public ModelAndView showAssociates() {
 		ModelAndView mv = new ModelAndView("/associates");
+		return mv;
+	}
+
+	@RequestMapping("login")
+	public ModelAndView showLogin() {
+		ModelAndView mv = new ModelAndView("/Home");
+		mv.addObject("LoginClicked", "true");
+		return mv;
+	}
+
+	@RequestMapping("logout")
+	public ModelAndView logout() {
+		ModelAndView mv = new ModelAndView("/Home");
 		return mv;
 	}
 }

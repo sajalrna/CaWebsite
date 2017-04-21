@@ -1,20 +1,27 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
+
 <div class="text-center" style="padding: 50px 0">
-	<div class="logo">LOGIN FORM</div>
+	<div class="logo">REGISTER FORM</div>
+	<!-- Main Form -->
 	<div class="login-form-1">
-		<form id="login-form" class="text-left" method="post"
-			action="validate">
+		<fm:form id="register-form" class="text-left" action="registerUser">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label> <input
+						<label for="reg_username" class="sr-only">Username</label> <input
 							type="text" class="form-control" id="username" name="username"
 							placeholder="username">
 					</div>
 					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label> <input
+						<label for="reg_password" class="sr-only">Password</label> <input
 							type="password" class="form-control" id="password"
 							name="password" placeholder="password">
+					</div>
+					<div class="form-group">
+						<label for="reg_email" class="sr-only">Email</label> <input
+							type="text" class="form-control" id="email" name="email"
+							placeholder="email">
 					</div>
 				</div>
 				<button type="submit" class="login-button">
@@ -23,9 +30,9 @@
 			</div>
 			<div class="etc-login-form">
 				<p>
-					new user? <a href="register">create new account</a>
+					already have an account? <a href="login">login here</a>
 				</p>
 			</div>
-		</form>
+		</fm:form>
 	</div>
 </div>
