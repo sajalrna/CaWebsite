@@ -1,5 +1,7 @@
 package com.sajal.cawebsite.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,24 +17,26 @@ public class HomeController {
 
 	@Autowired
 	PartnerDAO partnerDAO;
-	
+
 	@Autowired
 	AssociateDAO associateDAO;
-	
+
 	@Autowired
 	ServiceDAO serviceDAO;
+
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping("/")
 	public ModelAndView showStart() {
 		ModelAndView mv = new ModelAndView("/Home");
-		mv.addObject("serviceList", serviceDAO.service());
+		session.setAttribute("serviceList", serviceDAO.service());
 		return mv;
 	}
 
 	@RequestMapping("home")
 	public ModelAndView showHome() {
 		ModelAndView mv = new ModelAndView("/Home");
-		mv.addObject("serviceList", serviceDAO.service());
 		return mv;
 	}
 
@@ -47,6 +51,36 @@ public class HomeController {
 	public ModelAndView showAssociates(Model model) {
 		ModelAndView mv = new ModelAndView("/associates");
 		model.addAttribute("associateList", associateDAO.associate());
+		return mv;
+	}
+
+	@RequestMapping("contact")
+	public ModelAndView showContact() {
+		ModelAndView mv = new ModelAndView("/contact");
+		return mv;
+	}
+
+	@RequestMapping("notification")
+	public ModelAndView showNotification() {
+		ModelAndView mv = new ModelAndView("/notification");
+		return mv;
+	}
+
+	@RequestMapping("acts")
+	public ModelAndView showActs() {
+		ModelAndView mv = new ModelAndView("/acts");
+		return mv;
+	}
+
+	@RequestMapping("link")
+	public ModelAndView showLink() {
+		ModelAndView mv = new ModelAndView("/link");
+		return mv;
+	}
+
+	@RequestMapping("rules")
+	public ModelAndView showRules() {
+		ModelAndView mv = new ModelAndView("/rules");
 		return mv;
 	}
 

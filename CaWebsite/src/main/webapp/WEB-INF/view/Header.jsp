@@ -62,10 +62,10 @@
 									<li><a href="#">${service.name}</a></li>
 								</c:forEach>
 							</ul></li>
-						<li><a href="#">Notifications</a></li>
-						<li><a href="#">Acts</a></li>
-						<li><a href="#">Rules</a></li>
-						<li><a href="#">Links</a></li>
+						<li><a href="${pageContext.request.contextPath}/notification">Notifications</a></li>
+						<li><a href="${pageContext.request.contextPath}/acts">Acts</a></li>
+						<li><a href="${pageContext.request.contextPath}/rules">Rules</a></li>
+						<li><a href="${pageContext.request.contextPath}/link">Links</a></li>
 						<s:authorize access="hasAuthority('ROLE_ADMIN')">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -84,8 +84,8 @@
 						</s:authorize>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Query</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="${pageContext.request.contextPath}/contact">Contact
+								Us</a></li>
 						<s:authorize access="isAnonymous()">
 							<li><a href="${pageContext.request.contextPath}/login">Login
 									<i class="fa fa-sign-in" aria-hidden="true"></i>
