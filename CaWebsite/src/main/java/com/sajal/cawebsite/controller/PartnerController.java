@@ -56,9 +56,9 @@ public class PartnerController {
 
 	@RequestMapping("/editPartner/{id}")
 	public String editPartner(@PathVariable("id") int id, Model model) {
-		partner = partnerDAO.getPartnerByID(id);
+		model.addAttribute("partner", partnerDAO.getPartnerByID(id));
+		model.addAttribute("partnerList", this.partnerDAO.partner());
 		return "/admin/adminPartner";
 
 	}
-
 }

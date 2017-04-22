@@ -1,31 +1,74 @@
-<div class="text-center" style="padding: 50px 0">
-	<div class="logo">LOGIN FORM</div>
-	<div class="login-form-1">
-		<form id="login-form" class="text-left" method="post"
-			action="validate">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label> <input
-							type="text" class="form-control" id="username" name="username"
-							placeholder="username">
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
+<link href="${pageContext.request.contextPath}/resources/css/login.css" rel="stylesheet">
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login.js">
+	
+</script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-login">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-6">
+							<a href="#" class="active" id="login-form-link">Login</a>
+						</div>
+						<div class="col-xs-6">
+							<a href="#" id="register-form-link">Register</a>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label> <input
-							type="password" class="form-control" id="password"
-							name="password" placeholder="password">
+					<hr>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							<form id="login-form" action="validate" method="post" role="form"
+								style="display: block;">
+								<div class="form-group">
+									<input type="text" name="username" id="username" tabindex="1"
+										class="form-control" placeholder="Username" value="">
+								</div>
+								<div class="form-group">
+									<input type="password" name="password" id="password"
+										tabindex="2" class="form-control" placeholder="Password">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6 col-sm-offset-3">
+											<input type="submit" name="login-submit" id="login-submit"
+												tabindex="4" class="form-control btn btn-login"
+												value="Log In">
+										</div>
+									</div>
+								</div>
+							</form>
+							<fm:form id="register-form" action="registerUser" method="post"
+								role="form" style="display: none;">
+								<div class="form-group">
+									<input type="text" name="username" id="username" tabindex="1"
+										class="form-control" placeholder="Username" value="">
+								</div>
+								<div class="form-group">
+									<input type="email" name="email" id="email" tabindex="1"
+										class="form-control" placeholder="Email Address" value="">
+								</div>
+								<div class="form-group">
+									<input type="password" name="password" id="password"
+										tabindex="2" class="form-control" placeholder="Password">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6 col-sm-offset-3">
+											<input type="submit" name="register-submit"
+												id="register-submit" tabindex="4"
+												class="form-control btn btn-register" value="Register Now">
+										</div>
+									</div>
+								</div>
+							</fm:form>
+						</div>
 					</div>
 				</div>
-				<button type="submit" class="login-button">
-					<i class="fa fa-chevron-right"></i>
-				</button>
 			</div>
-			<div class="etc-login-form">
-				<p>
-					new user? <a href="register">create new account</a>
-				</p>
-			</div>
-		</form>
+		</div>
 	</div>
 </div>

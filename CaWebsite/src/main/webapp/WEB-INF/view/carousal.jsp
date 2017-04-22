@@ -1,5 +1,5 @@
-<link href="resources/css/carousal.css" />
-<script type="text/javascript" src="resources/js/carousal.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/carousal.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/carousal.js"></script>
 
 <div class="container">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">

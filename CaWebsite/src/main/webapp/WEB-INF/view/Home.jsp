@@ -5,20 +5,10 @@
 <jsp:include page="Header.jsp" />
 
 <br>
-<!-- 
-<s:authorize access="hasAuthority('ROLE_ADMIN')">
-	<jsp:forward page="/adminHome" />
-</s:authorize>
- -->
+
 <c:if test="${LoginClicked==true}">
 	<jsp:include page="login.jsp"></jsp:include>
 </c:if>
-
-<c:if test="${RegisterClicked==true}">
-	<jsp:include page="register.jsp"></jsp:include>
-</c:if>
-
-<a href="partnerForm">edit partner</a>
 
 <jsp:include page="carousal.jsp"></jsp:include>
 <br>

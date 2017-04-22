@@ -1,18 +1,22 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CA Website</title>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="resources/css/login.css" type="stylesheet">
-<script src="resources/js/login.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/login.css"
+	type="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/js/login.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Varela+Round'
 	rel='stylesheet' type='text/css'>
 <script
@@ -20,7 +24,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link href="resources/css/Header.css" type="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/Header.css"
+	type="stylesheet">
 </head>
 <body>
 	<h2>WELCOME TO CA WEBSITE</h2>
@@ -41,48 +46,56 @@
 				</div>
 				<div class="collapse navbar-collapse" id="example-2">
 					<ul class="nav navbar-nav">
-						<li><a href="home">Home</a></li>
+						<li><a href="${pageContext.request.contextPath}/home">Home</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Our Team<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="partners">Partners</a></li>
-								<li><a href="associates">Associates</a></li>
+								<li><a href="${pageContext.request.contextPath}/partners">Partners</a></li>
+								<li><a href="${pageContext.request.contextPath}/associates">Associates</a></li>
 							</ul></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Our Services<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Service 1</a></li>
-								<li><a href="#">Service 2</a></li>
+								<c:forEach var="service" items="${serviceList}">
+									<li><a href="#">${service.name}</a></li>
+								</c:forEach>
 							</ul></li>
 						<li><a href="#">Notifications</a></li>
 						<li><a href="#">Acts</a></li>
 						<li><a href="#">Rules</a></li>
+						<li><a href="#">Links</a></li>
+						<s:authorize access="hasAuthority('ROLE_ADMIN')">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">Admin Dashboard<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a
+										href="${pageContext.request.contextPath}/partnerForm">Edit
+											Partner</a></li>
+									<li><a
+										href="${pageContext.request.contextPath}/associateForm">Edit
+											Associates</a></li>
+									<li><a
+										href="${pageContext.request.contextPath}/serviceForm">Edit
+											Service</a></li>
+								</ul></li>
+						</s:authorize>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Query</a></li>
 						<li><a href="#">Contact Us</a></li>
-						<li class="dropdown"><a
-							href="${pageContext.request.contextPath}/login"
-							class="dropdown-toggle" data-toggle="dropdown" role="button"
-							aria-haspopup="true" aria-expanded="false">My Account<span
-								class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<s:authorize access="isAnonymous()">
-									<li><a href="${pageContext.request.contextPath}/login">Login
-											<i class="fa fa-sign-in" aria-hidden="true"></i>
-									</a></li>
-									<li><a href="${pageContext.request.contextPath}/register">Register
-											<i class="fa fa-user-plus" aria-hidden="true"></i>
-									</a></li>
-								</s:authorize>
-								<s:authorize access="isAuthenticated()">
-									<li><a href="${pageContext.request.contextPath}/logout">Logout
-											<i class="fa fa-sign-out" aria-hidden="true"></i>
-									</a></li>
-								</s:authorize>
-							</ul></li>
+						<s:authorize access="isAnonymous()">
+							<li><a href="${pageContext.request.contextPath}/login">Login
+									<i class="fa fa-sign-in" aria-hidden="true"></i>
+							</a></li>
+						</s:authorize>
+						<s:authorize access="isAuthenticated()">
+							<li><a href="${pageContext.request.contextPath}/logout">Logout
+									<i class="fa fa-sign-out" aria-hidden="true"></i>
+							</a></li>
+						</s:authorize>
 					</ul>
 				</div>
 			</div>

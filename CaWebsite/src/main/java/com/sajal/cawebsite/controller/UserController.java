@@ -19,7 +19,7 @@ public class UserController {
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
-
+/*
 	@RequestMapping("register")
 	public ModelAndView showRegister() {
 		ModelAndView mv = new ModelAndView("/Home");
@@ -27,12 +27,11 @@ public class UserController {
 		mv.addObject("user", new User());
 		return mv;
 	}
-
+*/
 	@RequestMapping("/registerUser")
 	public ModelAndView userAdd(@ModelAttribute("user") User u) {
 		ModelAndView mv = new ModelAndView("/Home");
 		userDAO.save(u);
 		return mv;
 	}
-
 }

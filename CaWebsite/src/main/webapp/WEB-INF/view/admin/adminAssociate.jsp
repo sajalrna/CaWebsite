@@ -13,12 +13,12 @@
 	<div class="col-md-5">
 		<div class="form-area">
 			<fm:form role="form"
-				action="${pageContext.request.contextPath}/registerPartner"
-				modelAttribute="partner" method="post">
+				action="${pageContext.request.contextPath}/registerAssociate"
+				modelAttribute="associate" method="post">
 				<br style="clear: both">
-				<h3 style="margin-bottom: 25px; text-align: center;">Partner
+				<h3 style="margin-bottom: 25px; text-align: center;">Associate
 					Form</h3>
-				<c:if test="${not empty partner.name}">
+				<c:if test="${not empty associate.name}">
 					<div class="form-group">
 						<fm:input type="text" path="id" class="form-control" id="id"
 							name="id" placeholder="Id" readonly="true" />
@@ -29,21 +29,13 @@
 						name="name" placeholder="Name" required="true" />
 				</div>
 				<div class="form-group">
-					<fm:input type="text" path="year" class="form-control" id="year"
-						name="year" placeholder="Year" required="true" />
+					<fm:input type="text" path="company" class="form-control"
+						id="company" name="company" placeholder="company" required="true" />
 				</div>
 				<div class="form-group">
-					<fm:input type="text" path="role" class="form-control" id="role"
-						name="role" placeholder="Role in partnership" required="true" />
-				</div>
-				<div class="form-group">
-					<fm:input type="text" path="expertise" class="form-control"
-						id="expertise" name="expertise" placeholder="Area of expertise"
+					<fm:input type="text" path="companyname" class="form-control"
+						id="companyname" name="companyname" placeholder="companyname"
 						required="true" />
-				</div>
-				<div class="form-group">
-					<fm:textarea path="about" class="form-control" type="textarea"
-						id="about" placeholder="About you" maxlength="250" rows="7"></fm:textarea>
 				</div>
 				<input type="submit" id="submit" name="submit" value="Submit Form"
 					class="btn btn-primary pull-right">
@@ -53,7 +45,7 @@
 </div>
 
 <h4>
-	<b>&nbsp;&nbsp;&nbsp;LIST OF ALL THE PARTNERS IN THE DATABASE:</b>
+	<b>&nbsp;&nbsp;&nbsp;LIST OF ALL THE ASSOCIATES IN THE DATABASE:</b>
 </h4>
 
 <div class="container-fluid">
@@ -64,24 +56,22 @@
 					<tr>
 						<th>ID</th>
 						<th>Name</th>
-						<th>About You</th>
-						<th>year</th>
-						<th>Role</th>
-						<th>Expertise</th>
+						<th>Company</th>
+						<th>Company Name</th>
 						<th colspan="2">Modify</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="partner" items="${partnerList}">
+					<c:forEach var="associate" items="${associateList}">
 						<tr>
-							<td>${partner.id}</td>
-							<td>${partner.name}</td>
-							<td>${partner.about}</td>
-							<td>${partner.year}</td>
-							<td>${partner.role}</td>
-							<td>${partner.expertise}</td>
-							<td><a href="<c:url value='/editPartner/${partner.id}'/>">Edit</a></td>
-							<td><a href="<c:url value='/deletePartner/${partner.id}'/>">Delete</a></td>
+							<td>${associate.id}</td>
+							<td>${associate.name}</td>
+							<td>${associate.company}</td>
+							<td>${associate.companyname}</td>
+							<td><a
+								href="<c:url value='/editAssociate/${associate.id}'/>">Edit</a></td>
+							<td><a
+								href="<c:url value='/deleteAssociate/${associate.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

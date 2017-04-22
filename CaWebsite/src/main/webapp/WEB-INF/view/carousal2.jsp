@@ -1,5 +1,5 @@
-<link href="resources/css/carousal2.css">
-<script src="resources/js/carousal2.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/carousal2.css">
+<script src="${pageContext.request.contextPath}/resources/js/carousal2.js"></script>
 
 <div class="container">
 	<div class="col-xs-12">
